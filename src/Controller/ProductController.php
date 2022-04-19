@@ -3,20 +3,25 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Entity\Product;
+use App\Form\ProductType;
 use App\Repository\CategoryRepository;
 use App\Repository\ProductRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class ProductController extends AbstractController
 {
@@ -28,7 +33,7 @@ class ProductController extends AbstractController
         ]);
 
         if (!$category) {
-            throw $this->createNotFoundException("La catégorie demandée n'existe pas");
+            throw $this->createNotFoundException("La catégorie n'existe pas");
         }
 
         return $this->render('product/category.html.twig', [
@@ -54,40 +59,23 @@ class ProductController extends AbstractController
     }
 
     #[Route('/admin/product/create', name: 'product_create')]
-    public function create(FormFactoryInterface $factory, Request $request)
+    public function create(FormFactoryInterface $factory, Request $request, SluggerInterface $slugger, EntityManagerInterface $em)
     {
-        dump($request);
-
-        $builder = $factory->createBuilder();
-
-        $builder->add('name', TextType::class, [
-            'label' => 'Nom du produit',
-            'attr' => [
-                'placeholder' => 'Tapez le nom du produit'
-            ]
-        ])
-            ->add('shortDescription', TextareaType::class, [
-                'label' => 'Description courte',
-                'attr' => [
-                    'placeholder' => 'Tapez une description du produit'
-                ]
-            ])
-            ->add('price', MoneyType::class, [
-                'label' => 'Prix du produit',
-                'attr' => [
-                    'placeholder' => 'Tapez le prix du produit en €'
-                ]
-            ])
-            ->add('category', EntityType::class, [
-                'label' => 'categorie',
-                'placeholder' => '-- Choisir une Categorie--',
-                'class' => Category::class,
-                'choice_label' => function (Category $category) {
-                    return strtoupper($category->getName());
-                }
-            ]);
+        $builder = $factory->createBuilder(ProductType::class);
 
         $form = $builder->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()) {
+            $product = $form->getData();
+            $product->setSlug(strtolower($slugger->slug($product->getName())));
+
+            $em->persist($product);
+            $em->flush();
+
+            dd($product);
+        }
 
         $formView = $form->createView();
 
