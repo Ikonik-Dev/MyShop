@@ -25,7 +25,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 
 class ProductController extends AbstractController
 {
-    #[Route('/category/{slug}', name: 'product_category')]
+    #[Route('/shop/{slug}', name: 'product_category')]
     public function category($slug, CategoryRepository $categoryRepository): Response
     {
         $category = $categoryRepository->findOneBy([
@@ -42,7 +42,7 @@ class ProductController extends AbstractController
         ]);
     }
 
-    #[Route('/{category_slug}/{slug}', name: 'product_show')]
+    #[Route('/shop/{category_slug}/{slug}', name: 'product_show')]
     public function show($slug, ProductRepository $productRepository)
     {
 
@@ -58,29 +58,29 @@ class ProductController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/product/create', name: 'product_create')]
-    public function create(FormFactoryInterface $factory, Request $request, SluggerInterface $slugger, EntityManagerInterface $em)
-    {
-        $builder = $factory->createBuilder(ProductType::class);
+    // #[Route('/admin/product/create', name: 'product_create')]
+    // public function create(FormFactoryInterface $factory, Request $request, SluggerInterface $slugger, EntityManagerInterface $em)
+    // {
+    //     $builder = $factory->createBuilder(ProductType::class);
 
-        $form = $builder->getForm();
+    //     $form = $builder->getForm();
 
-        $form->handleRequest($request);
+    //     $form->handleRequest($request);
 
-        if ($form->isSubmitted()) {
-            $product = $form->getData();
-            $product->setSlug(strtolower($slugger->slug($product->getName())));
+    //     if ($form->isSubmitted()) {
+    //         $product = $form->getData();
+    //         $product->setSlug(strtolower($slugger->slug($product->getName())));
 
-            $em->persist($product);
-            $em->flush();
+    //         $em->persist($product);
+    //         $em->flush();
 
-            dd($product);
-        }
+    //         dd($product);
+    //     }
 
-        $formView = $form->createView();
+    //     $formView = $form->createView();
 
-        return $this->render('product/create.html.twig', [
-            'formView' => $formView
-        ]);
-    }
+    //     return $this->render('product/create.html.twig', [
+    //         'formView' => $formView
+    //     ]);
+    // }
 }

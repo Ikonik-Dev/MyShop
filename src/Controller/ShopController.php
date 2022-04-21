@@ -12,7 +12,7 @@ class ShopController extends AbstractController
     #[Route('/shop', name: 'app_shop')]
     public function index(ProductRepository $productRepository): Response
     {
-        $products = $productRepository->findBy([], [], 3);
+        $products = $productRepository->findBy([], [], 4);
 
 
         return $this->render('shop/index.html.twig', [

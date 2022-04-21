@@ -2,32 +2,32 @@
 
 namespace App\Form;
 
-use App\Entity\Product;
+use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ProductType extends AbstractType
+class UserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name')
-            ->add('price')
-            ->add('slug')
-            ->add('mainPicture', FileType::class, [
-                'mapped' => false
-            ])
-            ->add('shortDescription')
-            ->add('category')
+            ->add('email')
+            // ->add('roles')
+            // ->add('password')
+            ->add('fullname')
+            ->add('street')
+            ->add('zipcode')
+            ->add('city')
+            ->add('country')
+            ->add('isVerified')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Product::class,
+            'data_class' => User::class,
         ]);
     }
 }

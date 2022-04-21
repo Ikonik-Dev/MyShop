@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Product;
 use App\Form\ProductType;
 use App\Repository\ProductRepository;
+use App\Service\FileUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,13 +23,20 @@ class AdminProductController extends AbstractController
     }
 
     #[Route('/new', name: 'app_admin_product_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, ProductRepository $productRepository): Response
+    public function new(Request $request, ProductRepository $productRepository, FileUploader $fileUploader): Response
     {
         $product = new Product();
         $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $mainPictureFile = $form->get('mainPicture')->getData();
+            if ($mainPictureFile) {
+                $mainPictureFileName = $fileUploader->upload($mainPictureFile);
+                $product->setMainPicture($mainPictureFileName);
+            }
+
             $productRepository->add($product);
             return $this->redirectToRoute('app_admin_product_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -48,12 +56,19 @@ class AdminProductController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_admin_product_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Product $product, ProductRepository $productRepository): Response
+    public function edit(Request $request, Product $product, ProductRepository $productRepository, FileUploader $fileUploader): Response
     {
         $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $mainPictureFile = $form->get('mainPicture')->getData();
+            if ($mainPictureFile) {
+                $mainPictureFileName = $fileUploader->upload($mainPictureFile);
+                $product->setMainPicture($mainPictureFileName);
+            }
+
             $productRepository->add($product);
             return $this->redirectToRoute('app_admin_product_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -67,7 +82,7 @@ class AdminProductController extends AbstractController
     #[Route('/{id}', name: 'app_admin_product_delete', methods: ['POST'])]
     public function delete(Request $request, Product $product, ProductRepository $productRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$product->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $product->getId(), $request->request->get('_token'))) {
             $productRepository->remove($product);
         }
 
