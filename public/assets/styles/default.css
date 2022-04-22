@@ -1,7 +1,28 @@
-body {
+/* body {
     background: #0d6176;
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     color: #333;
     line-height: 1.5;
+} */
+
+/* body {
+    --primary-color: #ffffff ;
+    --secondary-color: #DC543E ;
+    --tertiary-color:  #3DDBBC ;
+    --quarter-color: #3D92DB ;
+    width:100%;
+    padding: 0;
+    margin: 0;
+} */
+
+/* La video */
+
+video#bgvid { 
+    position: fixed; right: 0; bottom: 0 !important;
+    min-width: 100%; min-height: 100% !important;
+    width: auto; height: auto; z-index: -100 !important;
+    background: url(VBG.jpg) no-repeat !important;
+    background-size: cover !important; 
+    /* z-index: -100 !important; */
 }

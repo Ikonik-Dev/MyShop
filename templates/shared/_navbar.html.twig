@@ -1,36 +1,77 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">HeT || le Shop</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="#">He-T</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item px-3">
+					<a class="nav-link" aria-current="page" href="{{ path('app_accueil') }}">Accueil</a>
+				</li>
+				<li class="nav-item px-3">
+					<a class="nav-link" href="{{ path('app_mission') }}">Mission</a>
+				</li>
+				<li class="nav-item px-3">
+					<a class="nav-link" href="{{ path('app_projets') }}">Projets</a>
+				</li>
+				<li class="nav-item px-3 dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Notre Shop
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<li>
+							<a class="dropdown-item" href="#">Fianarantsoa</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="#">Sambavy</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="#">Tsihombe</a>
+						</li>
+					</ul>
+				</li>
+				<li class="nav-item px-3">
+					<a class="nav-link" href="{{ path('app_shop') }}">Mon Panier</a>
+				</li>
+				<li class="nav-item px-3">
+					<a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
+				</li>
+				<li class="nav-item px-3">
+					<a class="nav-link" href="{{ path('app_register') }}">S'Enregistrer</a>
+				</li>
+				<li class="nav-item px-3 dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Administration
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<li>
+							<a class="dropdown-item" href="{{ path('app_admin_category_index') }}">Projets</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="{{ path('app_admin_product_index') }}">Produits</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="{{ path('app_admin_user_index') }}">Utilisateurs</a>
+						</li>
+						<li><hr class="dropdown-divider"></li>
+						<li>
+							<a class="dropdown-item" href="#">Something else here</a>
+						</li>
+					</ul>
+				</li>
+
+			</li>
+			<li class="nav-item px-3">
+				<a class="nav-link" href="{{ path('app_contact') }}">Nous Contacter</a>
+			</li>
+			{# <li class="nav-item">
+			          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+			        </li> #}
+		</ul>
+		<form class="d-flex">
+			<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+			<button class="btn btn-outline-success" type="submit">Search</button>
+		</form>
+	</div>
+</div></nav>

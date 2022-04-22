@@ -57,7 +57,7 @@ class ProfileController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $userRepository->add($user);
-            return $this->redirectToRoute('app_profile_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_profile_show', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('profile/edit.html.twig', [
@@ -66,7 +66,7 @@ class ProfileController extends AbstractController
         ]);
     }
 
-    #[Route('/', name: 'app_profile_delete', methods: ['POST'])]
+    #[Route('/delete', name: 'app_profile_delete', methods: ['POST'])]
     public function delete(Request $request, UserRepository $userRepository): Response
     {
         $user = $this->getUser();
@@ -74,6 +74,6 @@ class ProfileController extends AbstractController
             $userRepository->remove($user);
         }
 
-        return $this->redirectToRoute('app_profile_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_login', [], Response::HTTP_SEE_OTHER);
     }
 }
