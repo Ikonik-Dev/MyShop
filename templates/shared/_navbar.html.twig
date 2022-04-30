@@ -1,150 +1,76 @@
-{# <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-	<div class="container-fluid">
-		<a class="navbar-brand" href="#">He-T</a>
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<li class="nav-item px-3">
-					<a class="nav-link" aria-current="page" href="{{ path('app_accueil') }}">Accueil</a>
-				</li>
-				<li class="nav-item px-3">
-					<a class="nav-link" href="{{ path('app_mission') }}">Mission</a>
-				</li>
-				<li class="nav-item px-3">
-					<a class="nav-link" href="{{ path('app_projets') }}">Projets</a>
-				</li>
-				<li class="nav-item px-3 dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Notre Shop
+<!-- Navigation Start -->
+<div
+	class="fixed-top position-relative">
+	<!-- Topbar Start -->
+	<div class="container-fluid bg-light">
+		<div class="row bg-info py-2 px-lg-5">
+			<div class="col-lg text-center text-lg-right">
+				<div class="d-inline-flex align-items-center">
+					<p class="m-0 mr-1 text-white">Suivez Nous:</p>
+					<a class="text-white px-2" href="">
+						<i class="fab fa-facebook-f"></i>
 					</a>
-					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<li>
-							<a class="dropdown-item" href="#">Fianarantsoa</a>
-						</li>
-						<li>
-							<a class="dropdown-item" href="#">Sambavy</a>
-						</li>
-						<li>
-							<a class="dropdown-item" href="#">Tsihombe</a>
-						</li>
-					</ul>
-				</li>
-				<li class="nav-item px-3">
-					<a class="nav-link" href="{{ path('app_shop') }}">Mon Panier</a>
-				</li>
-				<li class="nav-item px-3">
-					<a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
-				</li>
-				<li class="nav-item px-3">
-					<a class="nav-link" href="{{ path('app_register') }}">S'Enregistrer</a>
-				</li>
-				<li class="nav-item px-3 dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Administration
+					<a class="text-white px-2" href="">
+						<i class="fab fa-twitter"></i>
 					</a>
-					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<li>
-							<a class="dropdown-item" href="{{ path('app_admin_category_index') }}">Projets</a>
-						</li>
-						<li>
-							<a class="dropdown-item" href="{{ path('app_admin_product_index') }}">Produits</a>
-						</li>
-						<li>
-							<a class="dropdown-item" href="{{ path('app_admin_user_index') }}">Utilisateurs</a>
-						</li>
-						<li><hr class="dropdown-divider"></li>
-						<li>
-							<a class="dropdown-item" href="#">Something else here</a>
-						</li>
-					</ul>
-				</li>
-
-			</li>
-			<li class="nav-item px-3">
-				<a class="nav-link" href="{{ path('app_contact') }}">Nous Contacter</a>
-			</li>
-			{# <li class="nav-item">
-			          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-			        </li>
-		</ul> 
-		<form class="d-flex">
-			<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-			<button class="btn btn-outline-success" type="submit">Search</button>
-		</form>
+					<a class="text-white px-2" href="">
+						<i class="fab fa-instagram"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="d-flex fex-row py-3 px-lg-5">
+			<div class="col-lg-4">
+				<a href="" class="navbar-brand d-lg-block">
+					<img class="img-fluid" src="{{asset('img/favicon.png') }}" alt="logo">
+				</a>
+			</div>
+			<div class="col-lg-8 text-center text-lg-right">
+				<div class="d-inline-flex align-items-center">
+					<div class="d-inline-flex flex-column text-center pl-3 border-left">
+						<h6>Notre Centre</h6>
+						<p class="m-0">Ambalakionga MADAGASCAR</p>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-</div></nav>
- #}
-
- <!-- Navigation Start -->
-    <div class="fixed-top position-relative"> 
-        <!-- Topbar Start -->   
-        <div class="container-fluid bg-light">
-            <div class="row bg-secondary py-2 px-lg-5">
-                <div class="col-lg text-center text-lg-right">
-                    <div class="d-inline-flex align-items-center">
-                        <p class="m-0 mr-1 text-white">Suivez Nous:</p>
-                        <a class="text-white px-2" href="">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a class="text-white px-2" href="">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a class="text-white px-2" href="">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="d-flex fex-row py-3 px-lg-5">
-                <div class="col-lg-4">
-                    <a href="" class="navbar-brand d-lg-block">
-                        <img class="img-fluid" src="img\favicon.png" alt="logo">
-                    </a>
-                </div>
-                <div class="col-lg-8 text-center text-lg-right">
-                    <div class="d-inline-flex align-items-center">
-                        <div class="d-inline-flex flex-column text-center pl-3 border-left">
-                            <h6>Notre Centre</h6>
-                            <p class="m-0">Ambalakionga MADAGASCAR</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Topbar End -->
+	<!-- Topbar End -->
 
 
-        <!-- Navbar Start -->
-        <div class="container-fluid mb-5 p-0 nav-bar">
-            <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-0">
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                    <div class="navbar-nav m-auto py-4">
-                        <a href="index.html" class="nav-item nav-link active">Accueil</a>
-                        <a href="about.html" class="nav-item nav-link">HeT</a>
-                        <a href="service.html" class="nav-item nav-link">Missions</a>
-                        <a href="guard.html" class="nav-item nav-link">Projets</a>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Notre Shop</a>
-                            <div class="dropdown-menu text-capitalize">
-                                <a href="blog.html" class="dropdown-item">Fianarantsoa</a>
-                                <a href="single.html" class="dropdown-item">Sambahavy</a>
-                                <a href="single.html" class="dropdown-item">Tsihombe</a>
-                            </div>
-                        </div>
-                        <a href="contact.html" class="nav-item nav-link">Panier</a>
-                        <a href="contact.html" class="nav-item nav-link">Connexion</a>
-                        <a href="contact.html" class="nav-item nav-link">Enregistrement</a>
-                        <a href="contact.html" class="nav-item nav-link">Administration</a>
-                        <a href="contact.html" class="nav-item nav-link">Nous Contacter</a>
-                    </div>
-                </div>
-            </nav>
-        </div>   
-        <!-- Navbar End -->
-    </div>
-    <!-- Navigation End -->
+	<!-- Navbar Start -->
+	<div class="container-fluid mb-5 p-0 nav-bar">
+		<nav class="navbar navbar-expand-lg bg-dark navbar-dark py-0">
+			<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+				<div class="navbar-nav m-auto py-4">
+					<a href="{{ path('app_accueil') }}" class="nav-item nav-link active">
+						<span class="text-white">H</span>uman
+						<span class="text-white">e-</span>
+						<span class="text-white">T</span>erre</a>
+					<a href="{{ path('app_shop') }}" class="nav-item nav-link active">
+						<span class="text-white">N</span>otre
+						<span class="text-white">e-</span>
+						<span class="text-white">S</span>hop</a>
+					{# todo pages 'missions', 'projets' + liens navbar, navpages #}
+					<a href="contact.html" class="nav-item nav-link">Panier</a>
+					<a href="{{path('app_login')}}" class="nav-item nav-link">Connexion</a>
+					<a href="{{path('app_register')}}" class="nav-item nav-link">Enregistrement</a>
+					<div class="nav-item dropdown">
+						<a href="{{path('app_shop')}}" class="nav-link dropdown-toggle" data-toggle="dropdown">Administration</a>
+						<div class="dropdown-menu text-capitalize">
+							<a href="{{ path('app_admin_user_index') }}" class="dropdown-item">utilisateurs</a>
+							<a href="/admin/category" class="dropdown-item">categories</a>
+							<a href="/admin/product" class="dropdown-item">Produits</a>
+						</div>
+					</div>
+					<a href="{{ path('app_contact')}}" class="nav-item nav-link">Nous Contacter</a>
+				</div>
+			</div>
+		</nav>
+	</div>
+	<!-- Navbar End -->
+</div>
+<!-- Navigation End -->

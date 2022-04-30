@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 {# <html>
 	<head>
 		<meta charset="UTF-8">
@@ -48,47 +48,38 @@
 			rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 			<!-- import du style custom -->
 			<link
-			href="css/style.css" rel="stylesheet">
+			href="{{asset('css/style.css') }}" rel="stylesheet">
 			<!-- import du Flaticon Font -->
 			<link
-			href="lib/flaticon/font/flaticon.css" rel="stylesheet">
+			href="{{asset('lib/flaticon/font/flaticon.css')}}" rel="stylesheet">
 			<!-- import du carousel -->
-			<link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+			<link href="{{asset('lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
 		{% endblock %}
 
 		{% block javascripts %}
 			<!-- JavaScript Libraries -->
 			<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-			<script src="lib/easing/easing.min.js"></script>
-			<script src="lib/waypoints/waypoints.min.js"></script>
-			<script src="lib/counterup/counterup.min.js"></script>
-			<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+			<script src="{{asset('lib/easing/easing.min.js')}}"></script>
+			<script src="{{asset('lib/waypoints/waypoints.min.js')}}"></script>
+			<script src="{{asset('lib/counterup/counterup.min.js')}}"></script>
+			<script src="{{asset('lib/owlcarousel/owl.carousel.min.js')}}"></script>
 
 			<!-- Contact Javascript File -->
-			<script src="mail/jqBootstrapValidation.min.js"></script>
-			<script src="mail/contact.js"></script>
+			<script src="/mail/jqBootstrapValidation.min.js"></script>
+			<script src="/mail/contact.js"></script>
 
 			<!-- Template Javascript -->
-			<script src="js/main.js"></script>
+			<script src="/js/main.js"></script>
 		{% endblock %}
 	</head>
-	<body>
 
-		{% include "shared/_navbar.html.twig" %}
+	<body>
 		{% include "shared/_background.html.twig" %}
-		{% include "shared/_header.html.twig" %}
-		{% include "shared/_skill.html.twig" %}
-		{% include "shared/_carousel.html.twig" %}
-		{% include "shared/_about.html.twig" %}
-		{% include "shared/_services_het.html.twig" %}
-		{% include "shared/_realisation.html.twig" %}
-		{% include "shared/_features.html.twig" %}
-		{% include "shared/_team.html.twig" %}
-		{% include "shared/_temoin.html.twig" %}
+		{% include "shared/_navbar.html.twig" %}
+		{% block body %}
+		{% endblock %}
 		{% include "shared/_footer.html.twig" %}
-		
-		
 		<!-- Back to Top -->
 		<a href="#" class="btn btn-primary border back-to-top">
 			<i class="fa fa-angle-double-up"></i>

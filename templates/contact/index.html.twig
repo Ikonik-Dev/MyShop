@@ -1,10 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Contactez Nous! | HeT{% endblock %}
+{% block title %}Contactez Nous! | HeT
+{% endblock %}
 
 {% block body %}
-<h1>
-    Contactez Nous!
-</h1>
-{{ form(formulaire) }}
-{% endblock %}
+	<div class="container mt-5 pt-5 text-white">
+			<h1 class="text-white">
+				Contactez Nous!
+			</h1>
+			{{ form(formulaire) }}
+		</div>
+	{% endblock %}
