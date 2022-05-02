@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="container mt-5 pt-5 mb-5 pb-5">
+		{% if cart.elements %}
+        <div class="container mt-5 pt-5">
+            <h4 class="text-light">Total du panier: {{ cart.total /100 }}€</h4>
+        </div>
+
+		<table class='bg-info container-fluid'>
+			<tr>
+				<th class='text-light bg-primary mr-5 pr-5 '>
+					Nom du produit
+				</th>
+				<th class='text-light bg-primary mr-5 pr-5 '>
+					Quantité
+				</th>
+				<th class='text-light bg-primary mr-5 pr-5 '>
+					Prix
+				</th>
+			</tr>
+            {% for element in cart.elements %}
+                
+            <tr>
+                <td class='text-light'>{{ element.product.name }}</td>
+                <td class='text-light'>{{ element.quantity }}</td>
+                <td class='text-light'>{{ element.product.price /100 }}€</td>
+            </tr>
+
+            {% endfor %}
+		</table>
+
+	{% endif %}
+</div>{% endblock %}
