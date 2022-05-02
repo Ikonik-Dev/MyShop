@@ -20,8 +20,8 @@
                 <td>{{ category.name }}</td>
                 <td>{{ category.slug }}</td>
                 <td>
-                    <a href="{{ path('app_admin_category_show', {'id': category.id}) }}">show</a>
-                    <a href="{{ path('app_admin_category_edit', {'id': category.id}) }}">edit</a>
+                    <a href="{{ path('app_admin_category_show', {'id': category.id}) }}"><button class='btn btn-info'>show</button></a>
+                    <a href="{{ path('app_admin_category_edit', {'id': category.id}) }}"><button class='btn btn-primary'>edit</button></a>
                 </td>
             </tr>
         {% else %}

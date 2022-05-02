@@ -56,17 +56,30 @@
 						<span class="text-white">S</span>hop</a>
 					{# todo pages 'missions', 'projets' + liens navbar, navpages #}
 					<a href="contact.html" class="nav-item nav-link">Panier</a>
-					<a href="{{path('app_login')}}" class="nav-item nav-link">Connexion</a>
-					<a href="{{path('app_register')}}" class="nav-item nav-link">Enregistrement</a>
+
 					<div class="nav-item dropdown">
-						<a href="{{path('app_shop')}}" class="nav-link dropdown-toggle" data-toggle="dropdown">Administration</a>
+						<a href="{{path('app_shop')}}" class="nav-link dropdown-toggle" data-toggle="dropdown">Mon Compte</a>
 						<div class="dropdown-menu text-capitalize">
-							<a href="{{ path('app_admin_user_index') }}" class="dropdown-item">utilisateurs</a>
-							<a href="/admin/category" class="dropdown-item">categories</a>
-							<a href="/admin/product" class="dropdown-item">Produits</a>
+							<a href="{{path('app_login')}}" class="dropdown-item">Connexion</a>
+							<a href="{{path('app_logout')}}" class="dropdown-item">Deconnexion</a>
+							<a href="{{path('app_register')}}" class="dropdown-item">S'Inscrire</a>
 						</div>
 					</div>
 					<a href="{{ path('app_contact')}}" class="nav-item nav-link">Nous Contacter</a>
+
+					{# condition d'affichage administrateur #}
+					{% if is_granted('ROLE_ADMIN' ) %}
+						<div class="nav-item dropdown">
+							<a href="{{path('app_shop')}}" class="nav-link dropdown-toggle" data-toggle="dropdown">Gestion</a>
+							<div class="dropdown-menu text-capitalize">
+								<a href="{{ path('app_admin_user_index') }}" class="dropdown-item">Gestion utilisateurs</a>
+								<a href="/admin/category" class="dropdown-item">Gestion categories</a>
+								<a href="/admin/product" class="dropdown-item">Gestion produits</a>
+							</div>
+						</div>
+					{% endif %}
+
+
 				</div>
 			</div>
 		</nav>

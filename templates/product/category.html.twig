@@ -7,17 +7,17 @@
 
 {% block body %}
 
-    	<ol class="breadcrumb">
+    	<ol class="breadcrumb mt-5 pt-5">
 		<li class="breadcrumb-item">
 			<a href="{{ path('app_shop') }}">Accueil</a>
 		</li>
 		<li class="breadcrumb-item active">{{ category.name }}</li>
 	</ol>
 
-	<h1>Catégorie :
+	<h1 class='mt-5 text-center'>
 		{{ category.name }}
 	</h1>
-
+	<div class="container mt-5 pt-5">
 	<div class="row">
 		{% for p in category.products %}
 			<div class="col-3">
@@ -27,7 +27,7 @@
 						<h4 class="card-title">{{ p.name }}
 							({{ p.price / 100 }}
 							&euro;)</h4>
-						<span class="badge bg-primary">
+						<span class="badge bg-info text-white">
 							{{ p.category.name }}
 						</span>
 						<p class="card-text">{{ p.shortDescription }}</p>
@@ -41,6 +41,6 @@
 			</div>
 		{% endfor %}
 	</div>
-
+</div>
 
 {% endblock %}

@@ -57,30 +57,4 @@ class ProductController extends AbstractController
             'product' => $product,
         ]);
     }
-
-    // #[Route('/admin/product/create', name: 'product_create')]
-    // public function create(FormFactoryInterface $factory, Request $request, SluggerInterface $slugger, EntityManagerInterface $em)
-    // {
-    //     $builder = $factory->createBuilder(ProductType::class);
-
-    //     $form = $builder->getForm();
-
-    //     $form->handleRequest($request);
-
-    //     if ($form->isSubmitted()) {
-    //         $product = $form->getData();
-    //         $product->setSlug(strtolower($slugger->slug($product->getName())));
-
-    //         $em->persist($product);
-    //         $em->flush();
-
-    //         dd($product);
-    //     }
-
-    //     $formView = $form->createView();
-
-    //     return $this->render('product/create.html.twig', [
-    //         'formView' => $formView
-    //     ]);
-    // }
 }

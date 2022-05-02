@@ -7,7 +7,7 @@
 
 {% block body %}
 
-	<ol class="breadcrumb">
+	<ol class="breadcrumb mt-5 pt-5">
 		<li class="breadcrumb-item">
 			<a href="{{ path('app_shop') }}">Accueil || HeT</a>
 		</li>
@@ -17,24 +17,25 @@
 		<li class="breadcrumb-item active">{{ product.name }}</li>
 	</ol>
 
-	<h1>{{ product.name }}
+	<h2 class='text-center mb-5'>{{ product.name }}
 		({{ product.price / 100 }}
-		€)</h1>
+		€)</h2>
+	<div class="container">
+		<div class="row">
+			<div class="col-4">
+				<img class="img-fluid" src="{{ product.mainPicture }}" alt="image de {{ product.name }}">
+			</div>
 
-	<div class="row">
-		<div class="col-4">
-			<img class="img-fluid" src="{{ product.mainPicture }}" alt="image de {{ product.name }}">
-		</div>
-
-		<div class="col">
-			<span class="badge bg-primary">
-				{{ product.category.name }}
-			</span>
-			<p>{{ product.shortDescription }}</p>
-			<a href="#" class="btn btn-success btn-lg">
-				<i class="fas fa-shopping-cart"></i>
-				Ajouter au panier
-			</a>
+			<div class="col">
+				<span class="badge bg-info text-white">
+					{{ product.category.name }}
+				</span>
+				<p>{{ product.shortDescription }}</p>
+				<a href="#" class="btn btn-success btn-lg">
+					<i class="fas fa-shopping-cart"></i>
+					Ajouter au panier
+				</a>
+			</div>
 		</div>
 	</div>
 {% endblock %}

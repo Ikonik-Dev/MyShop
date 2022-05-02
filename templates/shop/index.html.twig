@@ -5,9 +5,6 @@
 
 {% block body %}
 	<section class="video-container">
-		{# <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-			<source src="assets\videos\VBGv2.mp4" type="video/mp4">
-		</video> #}
 		<div class="container mt-5 pt-5">
 			<h1 class='text-center text-white'>
 				Notre Shop!
@@ -34,32 +31,50 @@
 				{% endfor %}
 			</div>
 			<hr>
+			<h3 class='text-white'>Choississez une localité</h3>
+			<div class="row bg-light">
+				{% for c in category %}
+					<div class="col">
+						<div class="card">
+							{# <img src="{{ p.mainPicture }}" class="img-fluid" alt="Image du produit"> #}
+							<div class="card-body">
+								<h4 class="card-title">{{ c.name }}
+								</h4>
+								<p class="card-text">{{ c.name }}</p>
+								{# <a href="{{ path('product_show', { 'category_slug': p.category.slug, 'slug': p.slug }) }}" class="btn btn-primary btn-sm">Détails</a> #}
+								<a href="/shop/{{c.name}}" class="btn btn-success btn-sm">accédé</a>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+			<hr>
 			<h2 class='text-white'>Un Service irreprochable</h2>
 			<p class='text-white'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, velit error. Blanditiis necessitatibus reprehenderit magni?</p>
 
 			<div class="row">
 				{% include "shared/_assurance.html.twig" with {
-            'color': 'primary',
-            'icone': 'fas fa-truck',
-            'text': "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda dolore quo, ullam ad illum iusto."
+            'color': 'info',
+            'icone': 'fas fa-ship',
+            'text': "Nous apportons un niveau de securité optimum pour l'envoie et le suivi de vos produits. C'est dans notre ADN"
         } %}
 
 				{% include "shared/_assurance.html.twig" with {
-            'color': 'success',
+            'color': 'info',
             'icone': 'fas fa-check',
-            'text': "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda dolore quo, ullam ad illum iusto."
+            'text': "Nous garantissons la reception de vos produits, conforme à vos attentes tel que nous le stipulons dans notre charte qualité."
         } %}
 
 				{% include "shared/_assurance.html.twig" with {
-            'color': 'warning',
+            'color': 'info',
             'icone': 'fas fa-shield',
-            'text': "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda dolore quo, ullam ad illum iusto."
+            'text': "Vos commandes, vos informations, vos données personnelles sont protégés et nous tenons à ce que cela soit transparent et precis."
         } %}
 
 				{% include "shared/_assurance.html.twig" with {
-            'color': 'danger',
+            'color': 'info',
             'icone': 'fas fa-lock',
-            'text': "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda dolore quo, ullam ad illum iusto."
+            'text': "Nos bases de données sont securisées, ainsi que les information circulant de notre site tel qu'indiqué dans notre charte."
         } %}
 			</div>
 		</div>

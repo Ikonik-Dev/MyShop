@@ -29,17 +29,17 @@
                 </td>
                 <td>{{ product.shortDescription }}</td>
                 <td>
-                    <a href="{{ path('app_admin_product_show', {'id': product.id}) }}">show</a>
-                    <a href="{{ path('app_admin_product_edit', {'id': product.id}) }}">edit</a>
+                    <a href="{{ path('app_admin_product_show', {'id': product.id}) }}"><button class='btn btn-info'>show</button></a>
+                    <a href="{{ path('app_admin_product_edit', {'id': product.id}) }}"><button class='btn btn-primary'>edit</button></a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="7">pas d'enregistrement</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_product_new') }}">Create new</a>
+    <a href="{{ path('app_admin_product_new') }}"><button class='btn btn-secondary'>Create new</button></a>
 {% endblock %}
